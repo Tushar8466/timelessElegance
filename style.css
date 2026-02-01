@@ -59,6 +59,12 @@ nav ul {
     list-style: none;
 }
 
+@media (max-width: 900px) {
+    nav ul {
+        display: none;
+    }
+}
+
 nav ul li a {
     font-size: 15px;
     text-decoration: none;
@@ -103,6 +109,78 @@ nav ul li a:hover {
 .icon {
     color: var(--color-white);
     padding-right: 1rem;
+    font-size: 1.2rem;
+}
+
+#nav-menu {
+    display: none;
+    color: var(--color-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+    #nav-menu {
+        display: inline-block;
+    }
+}
+
+#full-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+@media (min-width: 901px) {
+    #full-menu {
+        display: none;
+    }
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+
+.menu-links a {
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 5px;
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.menu-links a:hover {
+    color: var(--color-gold);
+}
+
+#close-menu {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    color: var(--color-white);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#close-menu:hover {
+    color: var(--color-gold);
 }
 
 .icon:hover {
@@ -143,10 +221,51 @@ nav ul li a:hover {
     margin-bottom: 40px;
     animation: fadeInUp 1s ease 0.2s both;
     font-family: var(--font-body);
-    text-transform: lowercase;
 }
 
-@keyframes fadeInUp {
+.btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.primary-btn {
+    padding: 1rem 2rem;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: var(--transition);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.primary-btn:hover {
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.secondary-btn {
+    padding: 1rem 2rem;
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: var(--transition);
+    font-size: 13px;
+    letter-spacing: 1px;
+    border: 2px solid var(--color-white);
+}
+
+.secondary-btn:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    cursor: pointer;
+}
+
+/* @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -156,4 +275,261 @@ nav ul li a:hover {
         opacity: 1;
         transform: translateY(0);
     }
+} */
+
+/* Watch Section V2 */
+.watch-section {
+    padding: 120px 5%;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.watch-section p {
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.watch-section h2 {
+    font-family: var(--font-heading);
+    font-size: 56px;
+    color: var(--color-black);
+    margin-bottom: 60px;
+    font-weight: 400;
+}
+
+.watch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 60px 40px;
+    max-width: 1440px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.watch-card {
+    background: var(--color-white);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.watch-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.watch-image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+}
+
+.watch-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s ease;
+}
+
+.watch-card:hover .watch-image {
+    transform: scale(1.05);
+}
+
+.watch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.watch-card:hover .watch-overlay {
+    opacity: 1;
+}
+
+.view-btn {
+    padding: 12px 24px;
+    background: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.watch-card:hover .view-btn {
+    transform: translateY(0);
+}
+
+.watch-info-v2 {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.watch-info-v2 .brand {
+    font-family: var(--font-body);
+    font-size: 10px;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.watch-info-v2 .model {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--color-black);
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.watch-info-v2 .price {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--color-gray);
+    font-weight: 500;
+}
+
+/* Redesigned Placeholder Images */
+.v2-img-1 {
+    background-image: url('https://hopknock.com/cdn/shop/files/IMG_4148.jpg?v=1755913420&width=1445');
+}
+
+.v2-img-2 {
+    background-image: url('https://media.rolex.com/image/upload/q_auto/f_auto/c_limit,w_1920/v1741607447/rolexcom/new-watches/2025/watches/new-dials/roller/new-watches-2025-new-dials-cosmograph-daytona-roller_m126518ln-0014_2501stojan_001.jpg');
+}
+
+.v2-img-3 {
+    background-image: url('https://dynamicmedia.audemarspiguet.com/is/image/audemarspiguet/jumbo_tribute?size=2560,0&dpr=off');
+}
+
+.v2-img-4 {
+    background-image: url('https://media.richardmille.com/wp-content/uploads/2023/07/27125834/RM30-01.png?dpr=3&width=900');
+}
+
+.v2-img-5 {
+    background-image: url('https://www.vacheron-constantin.com/dam/rcq/vac/43/16/54/431654.png.transform.vacdetail.png');
+}
+
+.v2-img-6 {
+    background-image: url('https://zimsonwatches.com/cdn/shop/files/omega-seamaster-diver-300m-co-axial-master-chronometer-chronograph-44-mm-21030445101001-824e80.png?v=1712313270');
+}
+
+/* Watch Brands Section */
+.watch-brands {
+    padding: 120px 5%;
+    background-color: var(--color-white);
+    text-align: center;
+}
+
+.watch-brands-title {
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.watch-brands-subtitle {
+    font-family: var(--font-heading);
+    font-size: 56px;
+    color: var(--color-black);
+    margin-bottom: 60px;
+    font-weight: 400;
+}
+
+.watch-brands-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.watch-brand-card {
+    background-color: var(--color-white);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #F0F0F0;
+    aspect-ratio: 3/2;
+}
+.watch-brand-card:hover{
+    border: 1px solid var(--color-gold);
+}
+
+.watch-brand-image {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.3s ease;
+}
+
+.watch-brand-card:hover .watch-brand-image {
+    opacity: 1;
+}
+
+.v1 {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_da_Rolex.png/1280px-Logo_da_Rolex.png");
+}
+
+
+.v2 {
+    background-image: url('https://1000logos.net/wp-content/uploads/2018/10/Audemars-Piguet-Logo.png');
+}
+
+.v3 {
+    background-image: url('https://cdn.worldvectorlogo.com/logos/richard-mille-1.svg');
+}
+
+.v4 {
+    background-image: url('https://cdn.worldvectorlogo.com/logos/patek-philippe-sa-1.svg');
+}
+
+.v5 {
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/f/fe/Vacheron_Constantin_logo.svg/1280px-Vacheron_Constantin_logo.svg.png');
+}
+
+.v6 {
+    background-image: url('https://sincerewatch.com/wp-content/uploads/2020/10/FM-Logo-1024x267.png');
+}
+.v7{
+    background-image: url('https://1000logos.net/wp-content/uploads/2016/10/Cartier-logo.png');
+}
+.v8{
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Omega_Logo.svg/1280px-Omega_Logo.svg.png');
+}
+.v9{
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/TAG_Heuer_Logo.svg/250px-TAG_Heuer_Logo.svg.png');
 }
