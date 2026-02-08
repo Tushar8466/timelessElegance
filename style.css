@@ -78,6 +78,10 @@ nav ul li a:hover {
     color: var(--color-gold);
 }
 
+.nav-links li {
+    position: relative;
+}
+
 .nav-links a {
     font-size: 12px;
     font-weight: 200;
@@ -85,25 +89,85 @@ nav ul li a:hover {
     text-transform: uppercase;
     color: var(--color-white);
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.nav-links a::after {
-    content: "";
+.nav-links a i {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-toggle.active i {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
     position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: var(--color-gold);
-    transition: var(--transition);
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    /* Center horizontally */
+    background-color: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid var(--color-gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    display: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    /* Ensure it's above other content */
 }
 
-.nav-links a:hover::after {
-    width: 100%;
+/* Specific styles for Mega Menu structure */
+.dropdown-menu.mega-menu {
+    display: none;
+    /* Default hidden */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 800px;
+    /* Fixed width for mega menu */
+    max-width: 90vw;
+    /* Responsive constraint */
 }
 
-.nav-links a:hover {
+.dropdown-menu.active {
+    display: grid;
+    /* Use grid when active */
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.mega-menu-column h3 {
     color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.mega-menu-column a {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--color-off-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.mega-menu-column a:hover {
+    color: var(--color-gold);
+    transform: translateX(5px);
+    /* Slight movement on hover */
+    background: none;
+    /* Remove background from previous styles */
+}
+
+.dropdown-menu a::after {
+    display: none;
 }
 
 .icon {
@@ -483,7 +547,8 @@ nav ul li a:hover {
     border: 1px solid #F0F0F0;
     aspect-ratio: 3/2;
 }
-.watch-brand-card:hover{
+
+.watch-brand-card:hover {
     border: 1px solid var(--color-gold);
 }
 
@@ -524,12 +589,15 @@ nav ul li a:hover {
 .v6 {
     background-image: url('https://sincerewatch.com/wp-content/uploads/2020/10/FM-Logo-1024x267.png');
 }
-.v7{
+
+.v7 {
     background-image: url('https://1000logos.net/wp-content/uploads/2016/10/Cartier-logo.png');
 }
-.v8{
+
+.v8 {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Omega_Logo.svg/1280px-Omega_Logo.svg.png');
 }
-.v9{
+
+.v9 {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/TAG_Heuer_Logo.svg/250px-TAG_Heuer_Logo.svg.png');
 }

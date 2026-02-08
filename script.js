@@ -118,3 +118,23 @@ gsap.from(".watch-brand-card", {
         toggleActions: "play none none none"
     }
 });
+
+// Dropdown functionality
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+
+if (dropdownToggle && dropdownMenu) {
+    dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+        dropdownMenu.classList.toggle('active');
+        dropdownToggle.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('active');
+            dropdownToggle.classList.remove('active');
+        }
+    });
+}
