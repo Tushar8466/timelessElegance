@@ -38,6 +38,8 @@ nav {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1.2s ease-out forwards;
+    text-align: left;
+    max-width: 600px;
 }
 
 .hero-content h1 {
