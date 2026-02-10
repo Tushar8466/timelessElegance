@@ -1,0 +1,12 @@
+.hero-image {
+    height: 100vh;
+    width: 100%;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+        url("https://www.bobswatches.com/rolex-blog/wp-content/uploads/2021/03/AudemarsPiguet_Group_5D3_2351-Edit-1.jpg") center/cover no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
