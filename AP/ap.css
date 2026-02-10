@@ -1,12 +1,100 @@
+:root {
+    --color-gold: #d4af37;
+    --color-gold-light: #e8d5a3;
+    --color-gold-dark: #b8960c;
+    --color-black: #0a0a0a;
+    --color-black-light: #1a1a1a;
+    --color-gray-dark: #333333;
+    --color-gray: #666666;
+    --color-gray-light: #999999;
+    --color-off-white: #f5f5f5;
+    --color-white: #ffffff;
+    --font-heading: "Cormorant Garamond", serif;
+    --font-body: "Montserrat", sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+}
+
 .hero-image {
     height: 100vh;
     width: 100%;
-    background:
+    /* background:
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-        url("https://www.bobswatches.com/rolex-blog/wp-content/uploads/2021/03/AudemarsPiguet_Group_5D3_2351-Edit-1.jpg") center/cover no-repeat;
+        url("https://dynamicmedia.audemarspiguet.com/is/image/audemarspiguet/header_desktop_APSC_pocket?wid=3000&dpr=off") center/cover no-repeat; */
+    background-image: url('https://dynamicmedia.audemarspiguet.com/is/image/audemarspiguet/header_desktop_APSC_pocket?wid=3000&dpr=off');
     background-size: cover;
+    background-position: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+}
+
+.hero-image .logo {
+    height: 40px;
+    width: 200px;
+    background-image: url('https://www.audemarspiguet.com/etc.clientlibs/ap-com/ui/clientlibs/publish/resources/static/audemars-piguet-logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: invert(1);
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--color-white);
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    opacity: 0.9;
 }
